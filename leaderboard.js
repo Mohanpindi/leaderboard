@@ -11,6 +11,8 @@ if(Meteor.isClient){
     if(playerid==selectedPlayer){
       return "selected"
     }
+
+    //comment
 }
 
   });
