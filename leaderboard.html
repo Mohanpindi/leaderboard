@@ -1,0 +1,38 @@
+<head>
+<title>Leaderboard</title>
+</head>
+<body>
+  <div class="page page-header" style="background-color:pink">
+
+  <h1>Leaderboard</h1></div>
+  <div>
+  {{> another}}
+</div>
+<div>
+  {{> leaderboard}}
+</div>
+</body>
+
+
+<template name="leaderboard" >
+  <ol style="background-color:lightblue">
+  {{#each Player}}
+    <li class="Player {{selectedClass}}" >{{name}}: {{score}}</li>
+  {{/each}}
+</ol>
+
+<input type="button" class="increament btn-lg" style="background-color:pink;" value="increase by 5">
+<input type="button" class="decreament btn-lg" style="background-color:pink, margin-bottom: 10px;" value="decrease by 5">
+
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    <span class="sr-only">60% Complete</span>
+  </div>
+</div>
+
+</template>
+
+<template name="another">
+
+
+</template>
