@@ -5,12 +5,21 @@
   <div class="page page-header" style="background-color:pink">
 
   <h1>Leaderboard</h1></div>
-  <div>
-  {{> another}}
-</div>
+  {{#if currentuser}}
+  <p>You're logged in.</p>
+    {{else}}
+  {{>register}}
+  {{>Login}}
+  {{/if}}
+
 <div>
   {{> leaderboard}}
 </div>
+<div>
+{{> LeaderBoardAddPlayerForm}}
+</div>
+
+
 </body>
 
 
@@ -21,18 +30,41 @@
   {{/each}}
 </ol>
 
-<input type="button" class="increament btn-lg" style="background-color:pink;" value="increase by 5">
-<input type="button" class="decreament btn-lg" style="background-color:pink, margin-bottom: 10px;" value="decrease by 5">
+<input type="button" class="increament btn-lg" style="background-color:pink" value="increase by 5">
+<input type="button" class="decreament btn-lg" style="background-color:pink;margin-bottom: 10px;" value="decrease by 5">
+
+
 
 <div class="progress">
   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
     <span class="sr-only">60% Complete</span>
   </div>
 </div>
-
+{{#if selectedPlayerShow}}
+<h1>SelectedPlayer:{{selectedPlayerShow.name}}</h1>
+<h1>score:{{selectedPlayerShow.score}}</h1>
+{{/if}}
 </template>
 
-<template name="another">
-
-
+<template name="LeaderBoardAddPlayerForm">
+  {{#if currentuser}}
+  <form id="form1">
+  <input type="text" name="Playername" class="increament btn-lg" style="background-color:pink">
+  <input type="submit" value="Add NewPlayer" class="increament btn-lg" style="background-color:pink">
+  <input type="button" class="delete btn-lg" style="background-color:pink" value="Delete Player">
+</form>
+{{/if}}
+</template>
+<template name="register">
+  <form>
+    <input type="name" name="username">
+          <input type="email" name="registerEmail">
+          <input type="password" name="registerPassword">
+          <input type="submit" value="Register">
+      </form>
+</template>
+<template name="Login">
+  <input type="email" name="loginEmail">
+        <input type="password" name="loginPassword">
+        <input type="submit" value="Login">
 </template>
